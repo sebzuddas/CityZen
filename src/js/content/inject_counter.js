@@ -5,6 +5,8 @@ let up_votes = 0;
 let down_votes = 0;
 let score = 0;
 
+let has_voted = false;
+
 export function inject_counter() {
     if (!is_product_page()) {
         return;
@@ -53,16 +55,32 @@ function update_votes() {
 }
 
 function up_vote() {
-    up_votes += 1
-    vote(1)
+    if (has_voted) {
+        up_votes -= 1;
+        vote(-1);
+        document.getElementById("sus_down_vote").style.visibility = "visible";
+    } else {
+        up_votes += 1
+        vote(1)
+        document.getElementById("sus_down_vote").style.visibility = "hidden";
+    }
+
 }
 
 function down_vote() {
-    down_votes += 1
-    vote(-1)
+    if (has_voted) {
+        down_votes -= 1;
+        vote(1);
+        document.getElementById("sus_up_vote").style.visibility = "visible";
+    } else {
+        down_votes += 1
+        vote(-1)
+        document.getElementById("sus_up_vote").style.visibility = "hidden";
+    }
 }
 
 function vote(delta_score) {
     score += delta_score;
-    update_votes()
+    update_votes();
+    has_voted = !has_voted
 }
