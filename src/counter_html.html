@@ -1,0 +1,56 @@
+<div class="sus_counter">
+    <img draggable="false"
+         tabindex="0"
+         alt="Upvote"
+         id="sus_up_vote"
+         src="https://www.svgrepo.com/show/93813/up-arrow.svg"
+         class="arrow"
+    >
+
+    <span id="sus_score" class="a-size-medium"></span>
+
+    <img draggable="false"
+         tabindex="0"
+         alt="Upvote"
+         id="sus_down_vote"
+         src="https://www.svgrepo.com/show/93813/up-arrow.svg"
+         class="arrow down"
+    >
+
+    <div class="sus_up_votes_down_votes_wrapper">
+        <span id="sus_up_votes"></span>
+
+        <span> / </span>
+
+        <span id="sus_down_votes"></span>
+    </div>
+</div>
+
+<style>
+
+    .sus_counter {
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+    .sus_counter .arrow {
+        width: 50px;
+        cursor: pointer;
+        filter: invert(70%) sepia(46%) saturate(546%) hue-rotate(10deg) brightness(113%) contrast(91%);
+    }
+
+    .sus_counter .arrow.down {
+        transform: rotateX(180deg);
+    }
+
+    #sus_up_votes {
+        color: #2ecc71
+    }
+
+    #sus_down_votes {
+        color: #e74c3c;
+    }
+
+</style>
